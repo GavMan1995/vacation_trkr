@@ -1,5 +1,9 @@
 <% if @infos.any? %>
-  
+  <% @infos.each do |info| %>
+  <%= link_to info.places %>
+  <br/>
+  <%= link_to 'Add More Info', new_trip_info_path(@trip) %>
+  <% end %>
 <% else %>
-<h3>No Current info</h3>
+  <h1>No Current info <%= link_to 'Add Some', new_trip_info_path(@trip) %>?</h1>
 <% end %>

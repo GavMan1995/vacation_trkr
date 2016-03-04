@@ -1,0 +1,13 @@
+<%= form_for [@trip,@info] do |f| %>
+<%= f.label :places %>
+<%= f.text_area :places %>
+<br/>
+<br/>
+
+<%= f.label :comments %>
+<%= f.text_area :comments %>
+<br/>
+<br/>
+
+<%= f.submit %>
+<% end %>
