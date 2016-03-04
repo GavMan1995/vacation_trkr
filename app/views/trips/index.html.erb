@@ -1,0 +1,17 @@
+<h1>Trips Tracker</h1>
+
+<%= link_to 'Add Trip', new_trip_path %>
+<hr/>
+
+<% if @trips.any? %>
+  <% @trips.each do |trip| %>
+  <h3><%= trip.name %></h3>
+  <%= link_to image_tag("plane.png"), trip_infos_path(trip) %>
+  <br/>
+  <%= link_to 'Delete', trip_path(trip), method: :delete, data: {confirm: 'Really Delete Trip?'}  %>
+  <%= link_to 'Rename', edit_trip_path(trip) %>
+  <hr/>
+  <% end %>
+<% else %>
+  <h3>You have no trips, GO TRAVEL BRO</h3>
+<% end %>

@@ -1,0 +1,20 @@
+
+<%= form_for @trip do |f| %>
+<%= f.label :name %>
+<%= f.text_area :name %>
+   <br/>
+   <br/>
+
+<%= f.label :start %>
+<%= f.date_select :start%>
+  <br/>
+  <br/>
+<%= f.label :end %>
+<%= f.date_select :end%>
+  <br/>
+  <br/>
+
+<%= f.submit %>
+<% end %>
+<br/>
+<%= link_to 'Cancel', trips_path %>
