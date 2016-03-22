@@ -1,9 +1,11 @@
 class InfosController < ApplicationController
-  before_action :find_trip
+  before_action :trip
   def index
     @infos = @trip.infos
   end
 
+  def show
+  end
 
   def edit
   end
@@ -14,7 +16,7 @@ class InfosController < ApplicationController
 
   def create
     @info = @trip.infos.create(info_params)
-    redirect_to trip_infos_path(@trip)
+    redirect_to trip_infos_path(@trip, @info)
   end
 
   private
@@ -23,7 +25,11 @@ class InfosController < ApplicationController
     params.require(:info).permit(:places, :comments)
   end
 
-  def find_trip
+  def trip
     @trip = Trip.find(params[:trip_id])
+  end
+
+  def info
+    @info = @trip.infos.find(params[:id])
   end
 end
